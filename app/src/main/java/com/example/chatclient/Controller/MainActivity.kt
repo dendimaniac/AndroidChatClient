@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.chatclient.Model.ChatServerConnector
 import com.example.chatclient.R
 import kotlinx.android.synthetic.main.activity_main.*
+import java.net.Socket
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

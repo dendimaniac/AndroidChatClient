@@ -1,6 +1,8 @@
 package com.example.chatclient.Model
 
+import android.util.Log
 import java.io.PrintStream
+import java.lang.Exception
 import java.net.Socket
 import java.util.*
 
@@ -14,7 +16,7 @@ object ChatServerConnector : IObservable, Runnable {
     lateinit var printStream: PrintStream
 
     var ipAddress: String = ""
-    private const val port = 23
+    const val port = 23
 
     override fun registerObserver(newObserver: IObserver) {
         observerSet.add(newObserver)
@@ -41,6 +43,6 @@ object ChatServerConnector : IObservable, Runnable {
         scanner = Scanner(socket.getInputStream())
         Thread(ChatListener(scanner)).start()
 
-        printStream = PrintStream(socket.getOutputStream())
+        printStream = PrintStream(socket.getOutputStream(), true)
     }
 }
