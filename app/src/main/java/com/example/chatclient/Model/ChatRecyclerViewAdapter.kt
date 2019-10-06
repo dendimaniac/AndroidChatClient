@@ -1,4 +1,4 @@
-package com.example.chatclient.Controller
+package com.example.chatclient.Model
 
 import android.content.Context
 import android.view.LayoutInflater

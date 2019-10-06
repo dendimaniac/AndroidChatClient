@@ -2,13 +2,13 @@ package com.example.chatclient.Model
 
 import android.util.Log
 import java.io.PrintStream
+import java.io.PrintWriter
 import java.lang.Exception
 import java.net.Socket
 import java.util.*
 
 object ChatServerConnector : IObservable, Runnable {
     override val observerSet: MutableSet<IObserver> = mutableSetOf()
-    private val messageList: MutableList<ChatMessage> = mutableListOf()
 
     lateinit var socket: Socket
 
@@ -33,7 +33,9 @@ object ChatServerConnector : IObservable, Runnable {
     }
 
     override fun insert(message: ChatMessage) {
-        messageList.add(message)
+        if (message.command == Commands.Chat && ConnectorData.canChat) {
+            ConnectorData.messageList.add(message)
+        }
         notifyObservers(message)
     }
 
@@ -44,5 +46,9 @@ object ChatServerConnector : IObservable, Runnable {
         Thread(ChatListener(scanner)).start()
 
         printStream = PrintStream(socket.getOutputStream(), true)
+    }
+
+    fun quit() {
+        socket.close()
     }
 }

@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         connectButton.setOnClickListener {
             ChatServerConnector.ipAddress = ipText.text.toString()
             Thread(ChatServerConnector).start()
-            val intent = Intent(this, ChatActivity::class.java).apply {}
+            val intent = Intent(this, LoginActivity::class.java).apply {}
             startActivity(intent)
         }
     }
