@@ -1,4 +1,4 @@
-package com.example.chatclient.Model
+package com.example.chatclient.Model.Data
 
 enum class Commands {
     Chat,

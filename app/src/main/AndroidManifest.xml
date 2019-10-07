@@ -14,9 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controller.LoginActivity"></activity>
+        <activity android:name=".Controller.MainActivity" />
+        <activity android:name=".Controller.LoginActivity" />
         <activity android:name=".Controller.ChatActivity" />
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".Controller.TopActivity" />
+        <activity android:name=".Controller.ConnectActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

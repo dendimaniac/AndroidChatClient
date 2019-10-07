@@ -1,4 +1,6 @@
-package com.example.chatclient.Model
+package com.example.chatclient.Model.Interfaces
+
+import com.example.chatclient.Model.Data.ChatMessage
 
 interface IObservable {
     val observerSet: MutableSet<IObserver>

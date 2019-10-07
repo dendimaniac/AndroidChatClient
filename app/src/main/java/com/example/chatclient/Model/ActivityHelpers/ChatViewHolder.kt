@@ -1,4 +1,4 @@
-package com.example.chatclient.Model
+package com.example.chatclient.Model.ActivityHelpers
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

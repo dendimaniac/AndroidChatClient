@@ -1,21 +1,16 @@
-package com.example.chatclient.Model
+package com.example.chatclient.Model.ActivityHelpers
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chatclient.Model.ChatViewHolder
-import com.example.chatclient.Model.ConnectorData
+import com.example.chatclient.Model.Data.ConnectorData
 import com.example.chatclient.R
 import kotlinx.android.synthetic.main.chat_recycler_item.view.*
 
-class ChatRecyclerViewAdapter(
-    private val context: Context
-) : RecyclerView.Adapter<ChatViewHolder>() {
-
+class ChatRecyclerViewAdapter : RecyclerView.Adapter<ChatViewHolder>() {
     override fun onCreateViewHolder(vg: ViewGroup, vt: Int): ChatViewHolder {
         val itemView =
-            LayoutInflater.from(context).inflate(
+            LayoutInflater.from(vg.context).inflate(
                 R.layout.chat_recycler_item, vg,
                 false
             )

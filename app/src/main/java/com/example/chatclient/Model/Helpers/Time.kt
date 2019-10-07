@@ -1,4 +1,4 @@
-package com.example.chatclient.Model
+package com.example.chatclient.Model.Helpers
 
 import java.time.Instant
 import java.time.ZoneId
