@@ -9,8 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatclient.Model.ActivityHelpers.TopRecyclerViewAdapter
 import com.example.chatclient.Model.ChatConnector.ChatServerConnector
 import com.example.chatclient.Model.Data.ChatMessage
+import com.example.chatclient.Model.Data.Commands
+import com.example.chatclient.Model.Data.ConnectorData
 import com.example.chatclient.Model.Interfaces.IObserver
+import com.example.chatclient.Model.MessagesHandlers.ChatMessager
 import com.example.chatclient.R
+import kotlinx.android.synthetic.main.fragment_chat.view.*
 import kotlinx.android.synthetic.main.fragment_top.view.*
 
 class TopFragment : Fragment(), IObserver {
@@ -29,8 +33,10 @@ class TopFragment : Fragment(), IObserver {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_top, container, false)
+
         rootView.topRecycler.layoutManager = linearLayoutManager
         rootView.topRecycler.adapter = topRecyclerViewAdapter
+
         return rootView
     }
 

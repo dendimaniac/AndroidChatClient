@@ -51,11 +51,11 @@ class ChatFragment : Fragment(), IObserver {
             rootView.messageInput.setText("")
         }
 
-        rootView.swipeContainer.setOnRefreshListener {
+        rootView.chatSwipeContainer.setOnRefreshListener {
             val getHistory =
                 ChatMessage(ConnectorData.username, Commands.History, "", "")
             Thread(ChatMessager(getHistory)).start()
-            rootView.swipeContainer.isRefreshing = false
+            rootView.chatSwipeContainer.isRefreshing = false
         }
 
         return rootView

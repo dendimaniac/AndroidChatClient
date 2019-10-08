@@ -12,6 +12,9 @@ object CommandsHandler {
                 if (ConnectorData.canChat) {
                     ConnectorData.messageList.add(chatMessage)
                 }
+                val requestTopMessage =
+                    ChatMessage(ConnectorData.username, Commands.Top, "", "")
+                Thread(ChatMessager(requestTopMessage)).start()
             }
             Commands.History -> {
                 if (chatMessage.username != ConnectorData.username) return
@@ -35,9 +38,6 @@ object CommandsHandler {
                 ConnectorData.topChatterMap.clear()
                 ConnectorData.topChatterMap.putAll(topMessages)
             }
-            Commands.Login -> TODO()
-            Commands.Users -> TODO()
-            Commands.Quit -> TODO()
         }
     }
 }
