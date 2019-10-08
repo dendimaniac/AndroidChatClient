@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatclient.Model.ActivityHelpers.ChatRecyclerViewAdapter
@@ -60,7 +61,6 @@ class ChatFragment : Fragment(), IObserver {
 
         return rootView
     }
-
 
     override fun newMessage(chatMessage: ChatMessage) {
         activity!!.runOnUiThread {

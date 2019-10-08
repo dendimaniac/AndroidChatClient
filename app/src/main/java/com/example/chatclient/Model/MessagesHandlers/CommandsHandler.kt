@@ -1,5 +1,6 @@
 package com.example.chatclient.Model.MessagesHandlers
 
+import com.example.chatclient.Model.ChatConnector.ChatServerConnector
 import com.example.chatclient.Model.Data.ChatMessage
 import com.example.chatclient.Model.Data.Commands
 import com.example.chatclient.Model.Data.ConnectorData
@@ -12,6 +13,8 @@ object CommandsHandler {
                 if (ConnectorData.canChat) {
                     ConnectorData.messageList.add(chatMessage)
                 }
+                val topRequest = ChatMessage(ConnectorData.username, Commands.Top, "", "")
+                Thread(ChatMessager(topRequest)).start()
             }
             Commands.History -> {
                 if (chatMessage.username != ConnectorData.username) return

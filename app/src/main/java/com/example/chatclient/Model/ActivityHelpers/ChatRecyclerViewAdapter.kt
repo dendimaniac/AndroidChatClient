@@ -7,21 +7,21 @@ import com.example.chatclient.Model.Data.ConnectorData
 import com.example.chatclient.R
 import kotlinx.android.synthetic.main.chat_recycler_item.view.*
 
-class ChatRecyclerViewAdapter : RecyclerView.Adapter<ChatViewHolder>() {
-    override fun onCreateViewHolder(vg: ViewGroup, vt: Int): ChatViewHolder {
+class ChatRecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewHolder>() {
+    override fun onCreateViewHolder(vg: ViewGroup, vt: Int): RecyclerViewHolder {
         val itemView =
             LayoutInflater.from(vg.context).inflate(
                 R.layout.chat_recycler_item, vg,
                 false
             )
-        return ChatViewHolder(itemView)
+        return RecyclerViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {
         return ConnectorData.messageList.size
     }
 
-    override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val view = holder.itemView
         val chatMessage = ConnectorData.messageList[position]
 

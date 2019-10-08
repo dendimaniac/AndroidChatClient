@@ -20,7 +20,7 @@ object ChatServerConnector : IObservable, Runnable {
     lateinit var printStream: PrintStream
 
     var ipAddress: String = ""
-    const val port = 23
+    private const val port = 23
 
     override fun registerObserver(newObserver: IObserver) {
         observerSet.add(newObserver)
@@ -51,9 +51,5 @@ object ChatServerConnector : IObservable, Runnable {
         Thread(ChatListener(scanner)).start()
 
         printStream = PrintStream(socket.getOutputStream(), true)
-    }
-
-    fun quit() {
-        socket.close()
     }
 }

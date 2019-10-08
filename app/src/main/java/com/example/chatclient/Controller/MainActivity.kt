@@ -1,7 +1,6 @@
 package com.example.chatclient.Controller
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chatclient.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -9,13 +8,12 @@ import android.view.MenuItem
 import androidx.annotation.IdRes
 import androidx.viewpager.widget.ViewPager
 import com.example.chatclient.Model.ActivityHelpers.MainPagerAdapter
-import com.example.chatclient.Model.Data.MainScreen
-import com.example.chatclient.Model.Data.getMainScreenForMenuItem
+import com.example.chatclient.Model.Data.*
+import com.example.chatclient.Model.MessagesHandlers.ChatMessager
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-    private lateinit var viewPager: ViewPager
-    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var mainPagerAdapter: MainPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +21,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         setContentView(R.layout.activity_main)
 
         // Initialize components/views.
-        viewPager = findViewById(R.id.view_pager);
-        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         mainPagerAdapter = MainPagerAdapter(supportFragmentManager)
 
         // Set items to be displayed.
@@ -36,7 +32,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         selectBottomNavigationViewMenuItem(defaultScreen.menuItemId)
 
         // Set the listener for item selection in the bottom navigation view.
-        bottomNavigationView.setOnNavigationItemSelectedListener(this)
+        bottomNavView.setOnNavigationItemSelectedListener(this)
 
         // Attach an adapter to the view pager and make it select the bottom navigation
         // menu item and change the title to proper values when selected.
@@ -63,9 +59,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
      * Selects the specified item in the bottom navigation view.
      */
     private fun selectBottomNavigationViewMenuItem(@IdRes menuItemId: Int) {
-        bottomNavigationView.setOnNavigationItemSelectedListener(null)
-        bottomNavigationView.selectedItemId = menuItemId
-        bottomNavigationView.setOnNavigationItemSelectedListener(this)
+        bottomNavView.setOnNavigationItemSelectedListener(null)
+        bottomNavView.selectedItemId = menuItemId
+        bottomNavView.setOnNavigationItemSelectedListener(this)
     }
 
     /**

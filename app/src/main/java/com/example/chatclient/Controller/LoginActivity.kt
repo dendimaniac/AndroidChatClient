@@ -46,14 +46,4 @@ class LoginActivity : AppCompatActivity(), IObserver {
             startActivity(intent)
         }
     }
-
-    override fun onStop() {
-        super.onStop()
-        ChatServerConnector.deregisterObserver(this)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        ChatServerConnector.quit()
-    }
 }
